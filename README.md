@@ -22,56 +22,37 @@ cd YoutubePlaylistAddition
 python -m venv env
 source env/bin/activate
 pip install -r requirements.txt
-2) Create OAuth credentials
+
+###2) Create OAuth credentials
 In Google Cloud Console:
-
 Enable YouTube Data API v3
-
 Create OAuth client ID → Application type: Desktop app
-
 Download the credentials JSON and place it in the project root as:
-
-txt
-Copy code
 client_secret.json
-3) Add your links
+
+###3) Add your links
 Edit main.py and update the links = [...] list (or modify to read from a text file).
 
-4) Run
-bash
-Copy code
-python main.py
+###4) Run python main.py
 On first run, it opens a browser for consent. After that it stores a token locally so you don’t have to log in every time.
 
-Output
+###Output
 Prints each added video
-
 Skips invalid / unavailable links
-
 Prints a final summary of skipped links
 
-Notes / Safety
+###Notes / Safety
 These files should NOT be committed:
-
 client_secret.json (OAuth secret)
-
 token_youtube.pkl (access/refresh token cache)
-
 env/ (virtual environment)
-
 Make sure your .gitignore includes them.
 
-Customization
+###Customization
 Playlist privacy is set in create_playlist():
-
 "private" (default)
-
 "unlisted"
-
 "public"
-
 Playlist title/description:
-
 playlist_title
-
 playlist_description
